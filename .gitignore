@@ -1,0 +1,20 @@
+# Vidéos — hébergées sur Vimeo/YouTube, pas sur GitHub (trop lourdes)
+*.mp4
+*.MP4
+*.mov
+*.MOV
+
+# Fichiers RAW appareil photo
+*.CR2
+*.cr2
+
+# Fichiers système macOS
+.DS_Store
+**/.DS_Store
+
+# Config locale Claude Code (hook WebP) — propre à la machine
+.claude/
+
+# Divers
+Thumbs.db
+*.log
