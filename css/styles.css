@@ -372,6 +372,7 @@ body.lb-locked{overflow:hidden}
 .stat:last-child{border-right:none}
 .stat-num{font-family:"Poppins";font-weight:800;font-size:clamp(30px,3.6vw,46px);color:var(--accent);line-height:1;margin-bottom:8px}
 .stat-lbl{font-size:13px;color:var(--text-muted);line-height:1.4}
+.about-parcours{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:start}
 
 /* ---------- PORTFOLIO MINI GRID ---------- */
 .pf-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
@@ -638,7 +639,7 @@ body.menu-locked{overflow:hidden}
 
 /* ---------- RESPONSIVE ---------- */
 @media(max-width:900px){
-  .hero-split,.feat,.contact-grid,.pf-feature,.about-split{grid-template-columns:1fr;gap:34px}
+  .hero-split,.feat,.contact-grid,.pf-feature,.about-split,.about-parcours{grid-template-columns:1fr;gap:34px}
   .cards,.cards-3,.pkgs,.products,.benefits .ben-grid{grid-template-columns:1fr}
   .gallery{grid-template-columns:repeat(2,1fr)}
   .pf-grid5{grid-template-columns:repeat(4,1fr)}
