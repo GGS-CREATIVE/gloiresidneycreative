@@ -79,6 +79,30 @@
     document.querySelectorAll('[data-yt]').forEach(function (el) {
       el.addEventListener('click', function () { openVidModal(el.getAttribute('data-yt')); });
     });
+
+    // Aperçu muet en boucle au survol (souris uniquement)
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      document.querySelectorAll('.vtile-video[data-yt]').forEach(function (tile) {
+        var id = tile.getAttribute('data-yt');
+        var frame = null, timer = null;
+        tile.addEventListener('mouseenter', function () {
+          timer = setTimeout(function () {
+            frame = document.createElement('iframe');
+            frame.className = 'vtile-preview';
+            frame.allow = 'autoplay; encrypted-media';
+            frame.src = 'https://www.youtube-nocookie.com/embed/' + id +
+              '?autoplay=1&mute=1&controls=0&loop=1&playlist=' + id +
+              '&modestbranding=1&rel=0&playsinline=1';
+            frame.addEventListener('load', function () { frame.classList.add('ready'); });
+            tile.appendChild(frame);
+          }, 200);
+        });
+        tile.addEventListener('mouseleave', function () {
+          clearTimeout(timer);
+          if (frame) { frame.remove(); frame = null; }
+        });
+      });
+    }
   }
 
   // Zoom de l'image hero au scroll

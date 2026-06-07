@@ -303,9 +303,12 @@ body.lb-locked{overflow:hidden}
 .showreel{position:relative;margin-top:46px;aspect-ratio:16/9;border-radius:20px;border:1px solid var(--border);cursor:pointer;background:#0c0509}
 .showreel .ph{border-radius:19px}
 .showreel-video,.showreel-poster{width:100%;height:100%;object-fit:cover;display:block;border-radius:19px}
-.vtile-vid,.vtile-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease)}
+.vtile-vid,.vtile-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;border-radius:13px;transition:transform .6s var(--ease)}
 .vtile-video:hover .vtile-poster{transform:scale(1.06)}
 .vtile-video{cursor:pointer}
+/* aperçu YouTube muet au survol */
+.vtile-preview{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:13px;z-index:2;pointer-events:none;opacity:0;transition:opacity .4s var(--ease)}
+.vtile-preview.ready{opacity:1}
 .showreel[data-yt]{cursor:pointer}
 /* Modal vidéo */
 .vid-modal{position:fixed;inset:0;background:rgba(0,0,0,.92);backdrop-filter:blur(10px);z-index:999;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s var(--ease);padding:24px}
