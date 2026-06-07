@@ -648,6 +648,8 @@ body.menu-locked{overflow:hidden}
   .photo-slide{flex:0 0 calc((100% - 14px) / 2)}
   .steps{grid-template-columns:repeat(2,1fr)}
   .hero h1{font-size:clamp(26px,7.2vw,38px)}
+  /* sur mobile : pas de glissement horizontal (évite tout décalage de carte) */
+  .reveal-l,.reveal-r{transform:translateY(26px)}
   .stats-row{grid-template-columns:1fr 1fr}
   .stat:nth-child(2){border-right:none}
   .stat:nth-child(3){border-top:1px solid var(--border)}
