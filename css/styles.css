@@ -25,8 +25,8 @@
 
 *{margin:0;padding:0;box-sizing:border-box}
 img,video{-webkit-user-drag:none;user-select:none;-webkit-user-select:none}
-html{scroll-behavior:smooth;scroll-padding-top:96px}
-body{font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+html{scroll-behavior:smooth;scroll-padding-top:96px;overflow-x:hidden;overflow-x:clip}
+body{font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;overflow-x:clip;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;max-width:100%}
 /* fondu d'entrée de page */
 body{opacity:0;animation:page-in .6s var(--ease) forwards}
 @keyframes page-in{to{opacity:1}}
