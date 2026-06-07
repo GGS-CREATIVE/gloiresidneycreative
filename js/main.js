@@ -53,64 +53,33 @@
     });
   }
 
-  // Showreel — play / pause
-  var srBtn = document.getElementById('showreelBtn');
-  var srVideo = document.querySelector('.showreel-video');
-  if (srBtn && srVideo) {
-    srBtn.addEventListener('click', function () {
-      srVideo.play();
-      srBtn.classList.add('sr-hidden');
-    });
-    srVideo.addEventListener('click', function () {
-      if (!srVideo.paused) {
-        srVideo.pause();
-        srBtn.classList.remove('sr-hidden');
-      }
-    });
-    srVideo.addEventListener('ended', function () {
-      srBtn.classList.remove('sr-hidden');
-    });
-  }
-
-  // Vignettes vidéo portfolio — hover preview muet + clic → modal
+  // Lecteurs vidéo YouTube (showreel + portfolio) → modal
   var vidModal = document.getElementById('vidModal');
-  var vidModalVideo = document.getElementById('vidModalVideo');
-  var vidModalClose = document.getElementById('vidModalClose');
+  var vidFrame = document.getElementById('vidModalFrame');
+  var vidClose = document.getElementById('vidModalClose');
 
-  function openVidModal(src) {
-    vidModalVideo.src = src;
-    vidModalVideo.currentTime = 0;
+  function openVidModal(ytid) {
+    vidFrame.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + ytid +
+      '?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="Vidéo" loading="lazy" ' +
+      'allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
     vidModal.classList.add('open');
-    vidModalVideo.play();
-    document.body.style.overflow = 'hidden';
+    document.body.classList.add('lb-locked');
   }
-
   function closeVidModal() {
     vidModal.classList.remove('open');
-    vidModalVideo.pause();
-    vidModalVideo.src = '';
-    document.body.style.overflow = '';
+    vidFrame.innerHTML = ''; // stoppe la lecture
+    document.body.classList.remove('lb-locked');
   }
-
   if (vidModal) {
-    vidModalClose.addEventListener('click', closeVidModal);
-    vidModal.addEventListener('click', function (e) {
-      if (e.target === vidModal) closeVidModal();
-    });
+    vidClose.addEventListener('click', closeVidModal);
+    vidModal.addEventListener('click', function (e) { if (e.target === vidModal) closeVidModal(); });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeVidModal();
+      if (e.key === 'Escape' && vidModal.classList.contains('open')) closeVidModal();
+    });
+    document.querySelectorAll('[data-yt]').forEach(function (el) {
+      el.addEventListener('click', function () { openVidModal(el.getAttribute('data-yt')); });
     });
   }
-
-  document.querySelectorAll('.vtile-video').forEach(function (tile) {
-    var vid = tile.querySelector('.vtile-vid');
-    if (!vid) return;
-    tile.addEventListener('mouseenter', function () { vid.play(); });
-    tile.addEventListener('mouseleave', function () { vid.pause(); vid.currentTime = 0; });
-    tile.addEventListener('click', function () {
-      if (vidModal) openVidModal(vid.src);
-    });
-  });
 
   // Zoom de l'image hero au scroll
   var heroImg = document.querySelector('.hero-img img');

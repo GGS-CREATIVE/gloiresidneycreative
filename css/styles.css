@@ -302,15 +302,17 @@ body.lb-locked{overflow:hidden}
 /* showreel */
 .showreel{position:relative;margin-top:46px;aspect-ratio:16/9;border-radius:20px;border:1px solid var(--border);cursor:pointer;background:#0c0509}
 .showreel .ph{border-radius:19px}
-.showreel-video{width:100%;height:100%;object-fit:cover;display:block;border-radius:19px}
-.vtile-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.vtile-video .vtile-play{transition:opacity .35s var(--ease),transform .35s var(--ease)}
-.vtile-video .vtile-play.sr-hidden{opacity:0;pointer-events:none;transform:scale(.6)}
+.showreel-video,.showreel-poster{width:100%;height:100%;object-fit:cover;display:block;border-radius:19px}
+.vtile-vid,.vtile-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease)}
+.vtile-video:hover .vtile-poster{transform:scale(1.06)}
+.vtile-video{cursor:pointer}
+.showreel[data-yt]{cursor:pointer}
 /* Modal vidéo */
-.vid-modal{position:fixed;inset:0;background:rgba(0,0,0,.92);backdrop-filter:blur(10px);z-index:999;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s var(--ease)}
+.vid-modal{position:fixed;inset:0;background:rgba(0,0,0,.92);backdrop-filter:blur(10px);z-index:999;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s var(--ease);padding:24px}
 .vid-modal.open{opacity:1;pointer-events:all}
-.vid-modal video{max-width:92vw;max-height:86vh;border-radius:14px;box-shadow:0 40px 100px rgba(0,0,0,.7);transform:scale(.94);transition:transform .35s var(--ease)}
-.vid-modal.open video{transform:scale(1)}
+.vid-modal-frame{width:min(1100px,92vw);aspect-ratio:16/9;border-radius:14px;overflow:hidden;box-shadow:0 40px 120px rgba(0,0,0,.7);background:#000;transform:scale(.94);transition:transform .35s var(--ease)}
+.vid-modal.open .vid-modal-frame{transform:scale(1)}
+.vid-modal-frame iframe{width:100%;height:100%;border:0;display:block}
 .vid-modal-close{position:absolute;top:20px;right:24px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:#fff;width:46px;height:46px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.25s var(--ease)}
 .vid-modal-close:hover{background:var(--accent);border-color:var(--accent)}
 .showreel .play{transition:opacity .4s var(--ease),transform .4s var(--ease)}
