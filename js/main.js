@@ -32,6 +32,10 @@
   var burger = document.getElementById('burger');
   var menu = document.getElementById('mobileMenu');
   if (burger && menu) {
+    // Sortir le menu du <header> (son backdrop-filter piège le position:fixed)
+    // → rattaché au <body> pour se caler sur l'écran, pas sur la page
+    document.body.appendChild(menu);
+
     // Scrim flouté plein écran (créé dynamiquement, cliquable pour fermer)
     var scrim = document.createElement('div');
     scrim.className = 'menu-scrim';
