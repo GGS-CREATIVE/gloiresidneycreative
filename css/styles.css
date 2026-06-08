@@ -644,7 +644,7 @@ body.menu-locked{overflow:hidden}
 @media(max-width:900px){
   .hero-split,.feat,.contact-grid,.pf-feature,.about-split,.about-parcours{grid-template-columns:1fr;gap:34px}
   .cards,.cards-3,.pkgs,.products,.benefits .ben-grid{grid-template-columns:1fr}
-  .gallery{grid-template-columns:repeat(2,1fr)}
+  .gallery,.gallery.g3{grid-template-columns:repeat(2,1fr)}
   .pf-grid5{grid-template-columns:repeat(4,1fr)}
   .pf-grid5 .tile{grid-column:span 2}
   .pf-grid5 .tile:nth-child(4),.pf-grid5 .tile:nth-child(5){grid-column:span 2}
@@ -716,7 +716,14 @@ body.menu-locked{overflow:hidden}
     .mobile-menu a.active::before{animation:none}
   }
   .step{grid-template-columns:1fr;gap:8px}
-  .steps,.pf-grid3,.pf-grid5,.pf-mini,.gallery,.pf-grid-web{grid-template-columns:1fr}
+  .steps,.pf-grid3,.pf-grid5,.pf-mini,.gallery,.gallery.g3,.pf-grid-web{grid-template-columns:1fr}
+  /* vidéo : 1 colonne cinéma sur mobile, vignette 16:9 lisible */
+  .gallery.g3{gap:18px}
+  .vtile{aspect-ratio:16/9;border-radius:16px}
+  .vtile .cap{padding:16px;font-size:15px}
+  .vtile .cs{font-size:11px;margin-bottom:3px}
+  .miniplay{width:62px;height:62px}
+  .miniplay svg{width:24px;height:24px}
   .pf-grid5 .tile,.pf-grid5 .tile:nth-child(4),.pf-grid5 .tile:nth-child(5){grid-column:1}
   .photo-slide{flex:0 0 100%}
   .foot-top{grid-template-columns:1fr}
