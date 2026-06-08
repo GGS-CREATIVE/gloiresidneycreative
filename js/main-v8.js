@@ -82,6 +82,10 @@
     });
     document.querySelectorAll('[data-yt]').forEach(function (el) {
       el.addEventListener('click', function () { openVidModal(el.getAttribute('data-yt')); });
+      // accessibilité clavier pour les tuiles role="button"
+      el.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openVidModal(el.getAttribute('data-yt')); }
+      });
     });
 
     // Aperçu muet en boucle au survol (souris uniquement)
