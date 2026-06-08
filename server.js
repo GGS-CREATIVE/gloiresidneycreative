@@ -27,6 +27,13 @@ const MIME = {
 function send(res, status, body, type) {
   var headers = {};
   if (type) headers['Content-Type'] = type;
+  // HTML : jamais mis en cache (les MAJ apparaissent tout de suite)
+  // Autres (css/js/images) : revalidation, le ?v= gère le cache long
+  if (type && type.indexOf('text/html') === 0) {
+    headers['Cache-Control'] = 'no-cache, no-store, must-revalidate';
+  } else {
+    headers['Cache-Control'] = 'public, max-age=0, must-revalidate';
+  }
   res.writeHead(status, headers);
   res.end(body);
 }
