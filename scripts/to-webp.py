@@ -19,8 +19,10 @@ except ImportError:
 
 QUALITY = 85
 EXTS = (".jpg", ".jpeg", ".png")
-# fichiers à NE jamais convertir (favicons, icônes app) : restent en PNG/ICO
-SKIP = ("favicon", "apple-touch-icon", "icon-", "-icon", "manifest")
+# fichiers à NE jamais convertir : restent en PNG/JPG/ICO
+# - favicons / icônes app
+# - "og" : image Open Graph de partage (LinkedIn/WhatsApp lisent mal le WebP en preview)
+SKIP = ("favicon", "apple-touch-icon", "icon-", "-icon", "manifest", "og")
 
 root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 target = sys.argv[1] if len(sys.argv) > 1 and not sys.argv[1].startswith("-") else os.path.join(root, "assets")
