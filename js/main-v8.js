@@ -445,4 +445,43 @@
       });
     });
   }
+
+  // Formulaire de contact — envoi AJAX vers Formspree.
+  // Repli automatique : sans JS, le <form action> POST classique fonctionne quand même.
+  var contactForm = document.getElementById('form');
+  if (contactForm && contactForm.action.indexOf('formspree.io') !== -1) {
+    var fError = document.getElementById('formError');
+    var fSuccess = document.getElementById('formSuccess');
+    var fBtn = contactForm.querySelector('[type="submit"]');
+    var fBtnLabel = fBtn ? fBtn.innerHTML : '';
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (fError) { fError.hidden = true; }
+      if (fBtn) { fBtn.disabled = true; fBtn.innerHTML = 'Envoi…'; }
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      }).then(function (res) {
+        if (res.ok) {
+          contactForm.hidden = true;
+          if (fSuccess) {
+            fSuccess.hidden = false;
+            fSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        } else {
+          return res.json().then(function (data) {
+            var msg = data && data.errors ? data.errors.map(function (x) { return x.message; }).join(', ') : null;
+            throw new Error(msg || 'Erreur');
+          });
+        }
+      }).catch(function () {
+        if (fError) {
+          fError.textContent = "Oups, l'envoi a échoué. Réessaie, ou écris-moi directement à contact@gloiresidneycreative.com.";
+          fError.hidden = false;
+        }
+        if (fBtn) { fBtn.disabled = false; fBtn.innerHTML = fBtnLabel; }
+      });
+    });
+  }
 })();
