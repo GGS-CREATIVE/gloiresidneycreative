@@ -1,0 +1,5 @@
+# GGS Creative — robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://gloiresidneycreative.com/sitemap.xml
