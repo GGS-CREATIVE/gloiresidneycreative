@@ -454,10 +454,15 @@
     var fSuccess = document.getElementById('formSuccess');
     var fBtn = contactForm.querySelector('[type="submit"]');
     var fBtnLabel = fBtn ? fBtn.innerHTML : '';
+    // Textes selon la langue de la page (<html lang>)
+    var isEN = (document.documentElement.lang || 'fr').toLowerCase().indexOf('en') === 0;
+    var fTxt = isEN
+      ? { sending: 'Sending…', error: "Oops, sending failed. Please try again, or email me directly at contact@gloiresidneycreative.com." }
+      : { sending: 'Envoi…', error: "Oups, l'envoi a échoué. Réessaie, ou écris-moi directement à contact@gloiresidneycreative.com." };
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
       if (fError) { fError.hidden = true; }
-      if (fBtn) { fBtn.disabled = true; fBtn.innerHTML = 'Envoi…'; }
+      if (fBtn) { fBtn.disabled = true; fBtn.innerHTML = fTxt.sending; }
       fetch(contactForm.action, {
         method: 'POST',
         body: new FormData(contactForm),
@@ -477,7 +482,7 @@
         }
       }).catch(function () {
         if (fError) {
-          fError.textContent = "Oups, l'envoi a échoué. Réessaie, ou écris-moi directement à contact@gloiresidneycreative.com.";
+          fError.textContent = fTxt.error;
           fError.hidden = false;
         }
         if (fBtn) { fBtn.disabled = false; fBtn.innerHTML = fBtnLabel; }
