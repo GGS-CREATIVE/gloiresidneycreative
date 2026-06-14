@@ -1,51 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- ===== Version française (racine) ===== -->
   <url>
     <loc>https://gloiresidneycreative.com/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gloiresidneycreative.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gloiresidneycreative.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gloiresidneycreative.com/"/>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://gloiresidneycreative.com/a-propos</loc>
-    <lastmod>2026-06-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gloiresidneycreative.com/a-propos"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gloiresidneycreative.com/en/a-propos"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gloiresidneycreative.com/a-propos"/>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://gloiresidneycreative.com/ggs-web-design</loc>
-    <lastmod>2026-06-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gloiresidneycreative.com/ggs-web-design"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gloiresidneycreative.com/en/ggs-web-design"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gloiresidneycreative.com/ggs-web-design"/>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://gloiresidneycreative.com/ggs-photography</loc>
-    <lastmod>2026-06-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gloiresidneycreative.com/ggs-photography"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gloiresidneycreative.com/en/ggs-photography"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gloiresidneycreative.com/ggs-photography"/>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://gloiresidneycreative.com/ggs-videography</loc>
-    <lastmod>2026-06-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gloiresidneycreative.com/ggs-videography"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gloiresidneycreative.com/en/ggs-videography"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gloiresidneycreative.com/ggs-videography"/>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://gloiresidneycreative.com/ggs-market</loc>
-    <lastmod>2026-06-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gloiresidneycreative.com/ggs-market"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gloiresidneycreative.com/en/ggs-market"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gloiresidneycreative.com/ggs-market"/>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://gloiresidneycreative.com/contact</loc>
-    <lastmod>2026-06-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gloiresidneycreative.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gloiresidneycreative.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gloiresidneycreative.com/contact"/>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ===== English version (/en/) ===== -->
+  <url>
+    <loc>https://gloiresidneycreative.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gloiresidneycreative.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gloiresidneycreative.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gloiresidneycreative.com/"/>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://gloiresidneycreative.com/en/a-propos</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gloiresidneycreative.com/a-propos"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gloiresidneycreative.com/en/a-propos"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gloiresidneycreative.com/a-propos"/>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gloiresidneycreative.com/en/ggs-web-design</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gloiresidneycreative.com/ggs-web-design"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gloiresidneycreative.com/en/ggs-web-design"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gloiresidneycreative.com/ggs-web-design"/>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gloiresidneycreative.com/mentions-legales</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
+    <loc>https://gloiresidneycreative.com/en/ggs-photography</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gloiresidneycreative.com/ggs-photography"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gloiresidneycreative.com/en/ggs-photography"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gloiresidneycreative.com/ggs-photography"/>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gloiresidneycreative.com/en/ggs-videography</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gloiresidneycreative.com/ggs-videography"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gloiresidneycreative.com/en/ggs-videography"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gloiresidneycreative.com/ggs-videography"/>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gloiresidneycreative.com/en/ggs-market</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gloiresidneycreative.com/ggs-market"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gloiresidneycreative.com/en/ggs-market"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gloiresidneycreative.com/ggs-market"/>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gloiresidneycreative.com/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gloiresidneycreative.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gloiresidneycreative.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gloiresidneycreative.com/contact"/>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

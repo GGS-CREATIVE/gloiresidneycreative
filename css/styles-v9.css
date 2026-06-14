@@ -789,3 +789,27 @@ body.menu-locked{overflow:hidden}
   .hero-cta-stack .hero-cta-row{flex-direction:column;align-items:stretch;gap:12px}
   .hero-cta-stack .hero-cta-row .btn{width:100%;padding:16px 24px}
 }
+
+/* =====================================================================
+   LANGUE — switch FR/EN (slider). Lien <a> qui mène vers la page jumelle.
+   .is-fr = thumb à gauche (page FR) · .is-en = thumb à droite (page EN)
+   ===================================================================== */
+.lang-switch{display:inline-flex;align-items:center;text-decoration:none;flex:0 0 auto}
+.lang-switch .ls-track{position:relative;display:inline-flex;align-items:center;
+  background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:100px;padding:3px;
+  transition:border-color .25s var(--ease)}
+.lang-switch .ls-opt{position:relative;z-index:1;font-family:"Poppins";font-weight:600;font-size:12px;
+  letter-spacing:.05em;line-height:1;padding:6px 11px;color:var(--text-muted);
+  transition:color .35s var(--ease)}
+.lang-switch .ls-thumb{position:absolute;top:3px;bottom:3px;left:3px;width:calc(50% - 3px);
+  background:var(--accent);border-radius:100px;box-shadow:0 4px 14px rgba(255,10,140,.4);
+  transition:transform .35s var(--ease)}
+.lang-switch.is-en .ls-thumb{transform:translateX(100%)}
+.lang-switch.is-fr .ls-opt:nth-child(1),
+.lang-switch.is-en .ls-opt:nth-child(2){color:#fff}
+.lang-switch:hover .ls-track{border-color:var(--accent)}
+@media(prefers-reduced-motion:reduce){.lang-switch .ls-thumb{transition:none}}
+@media(max-width:680px){
+  /* sur mobile le switch reste visible dans la barre, compact, à côté du burger */
+  .lang-switch{margin-left:auto;margin-right:14px}
+}
