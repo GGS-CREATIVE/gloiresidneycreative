@@ -81,6 +81,8 @@ nav{display:flex;align-items:center;justify-content:space-between;height:78px;ma
 .hero-center{text-align:center}
 .hero-center .hero-inner{max-width:740px;margin:0 auto;position:relative;z-index:2}
 .hero h1,.soon-backdrop .hero h2{font-size:clamp(32px,7vw,82px);font-weight:800;margin:22px 0;overflow-wrap:break-word}
+.hero h1.h1-long{font-size:clamp(32px,5.6vw,66px)}
+.hero-center .hero-inner:has(.h1-long){max-width:900px}
 .hero .lead{font-size:18px;color:var(--text-muted);max-width:520px;margin-bottom:34px}
 .hero-center .lead{margin-left:auto;margin-right:auto}
 .hero-cta-row{display:flex;gap:14px;flex-wrap:wrap}
