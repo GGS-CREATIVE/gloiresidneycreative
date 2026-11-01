@@ -486,6 +486,11 @@
     });
   }
 
+  // Popup "bientôt" (market) : verrouille le scroll, non fermable (header/footer en inert dans le HTML)
+  if (document.getElementById('soonOverlay')) {
+    document.documentElement.classList.add('soon-locked');
+  }
+
   // Market "bientôt" : bouton qui ouvre l'inscription + envoi AJAX vers Formspree.
   // Sans JS, l'ancre #notify affiche le formulaire (:target) et le POST classique fonctionne.
   var notifyForm = document.getElementById('notify');

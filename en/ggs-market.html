@@ -12,7 +12,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16.png">
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
-<link rel="stylesheet" href="../css/styles-v10.css">
+<link rel="stylesheet" href="../css/styles-v11.css">
   <link rel="alternate" hreflang="fr" href="https://gloiresidneycreative.com/ggs-market">
   <link rel="alternate" hreflang="en" href="https://gloiresidneycreative.com/en/ggs-market">
   <link rel="alternate" hreflang="x-default" href="https://gloiresidneycreative.com/ggs-market">
@@ -37,7 +37,7 @@
   <meta name="twitter:image:alt" content="Gloire Sidney Goniaga — Creative &amp; Artistic Director, Brussels">
 </head>
 <body>
-<header>
+<header inert>
   <nav>
     <a href="index.html" class="logo"><img src="../assets/LOGO-WHITE.svg" alt="GGS Creative"></a>
     <div class="nav-links">
@@ -57,35 +57,17 @@
   </div>
 </header>
 
-<section class="soon-page">
-  <div class="wrap">
-    <div class="soon-card">
-      <div class="soon-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-      </div>
-      <p class="soon-kicker">GGS. Market</p>
-      <h1>The marketplace<br><span class="accent">is coming soon</span></h1>
-      <p>I'm putting together a selection of creative resources — templates, presets, brand kits and guides — designed to save you time.</p>
-      <div class="soon-progress">
-        <div class="track"><i></i></div>
-        <p class="plabel">Under construction</p>
-      </div>
-      <div class="soon-links">
-        <a href="index.html" class="btn btn-ghost btn-sm">← Back to home</a>
-        <a href="#notify" class="btn btn-pink btn-sm" data-notify-open>Notify me at launch</a>
-      </div>
-      <form class="soon-notify" id="notify" action="https://formspree.io/f/mlgkneyl" method="POST">
-        <input type="hidden" name="_subject" value="GGS. Market: notify at launch">
-        <input type="email" name="email" required placeholder="you@email.com" aria-label="Your email address">
-        <button type="submit" class="btn btn-pink btn-sm">Notify me</button>
-        <p class="soon-notify-msg" role="status" hidden></p>
-      </form>
-      <span class="spark s1"></span><span class="spark s2"></span><span class="spark s3"></span>
-    </div>
-  </div>
-</section>
+<main class="soon-backdrop" aria-hidden="true" inert>
+  <section class="hero hero-glow-c hero-center">
+    <div class="wrap hero-inner"><span class="badge outline"><span class="dot"></span>GGS. Market</span><h2>Ready-to-use<br><span class="accent">creative resources</span></h2></div>
+  </section>
+  <div class="marquee-clip"><div class="marquee"><div class="track">
+    <span>TEMPLATES <em class="o">◉</em> PRESETS <em class="o">◉</em> BRAND KITS <em class="o">◉</em> GUIDES <em class="o">◉</em></span>
+    <span>TEMPLATES <em class="o">◉</em> PRESETS <em class="o">◉</em> BRAND KITS <em class="o">◉</em> GUIDES <em class="o">◉</em></span>
+  </div></div></div>
+</main>
 
-<footer>
+<footer inert>
   <div class="foot-cta">
     <div class="wrap foot-cta-inner">
       <p class="foot-cta-line">Got an idea?<br><em>Let's talk.</em></p>
@@ -134,6 +116,31 @@
     <div class="foot-bar-end"><a href="mentions-legales.html">Legal notice</a><a href="#" class="totop" aria-label="Back to top"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a></div>
   </div></div>
 </footer>
-<script src="../js/main-v10.js"></script>
+<div class="soon-overlay" id="soonOverlay" role="dialog" aria-modal="true" aria-labelledby="soonTitle">
+  <div class="soon-card">
+    <div class="soon-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+    </div>
+    <p class="soon-kicker">GGS. Market</p>
+    <h1 id="soonTitle">The marketplace<br><span class="accent">is coming soon</span></h1>
+    <p>I'm putting together a selection of creative resources — templates, presets, brand kits and guides — designed to save you time.</p>
+    <div class="soon-progress">
+      <div class="track"><i></i></div>
+      <p class="plabel">Under construction</p>
+    </div>
+    <div class="soon-links">
+      <a href="index.html" class="btn btn-ghost btn-sm">← Back to home</a>
+      <a href="#notify" class="btn btn-pink btn-sm" data-notify-open>Notify me at launch</a>
+    </div>
+    <form class="soon-notify" id="notify" action="https://formspree.io/f/mlgkneyl" method="POST">
+      <input type="hidden" name="_subject" value="GGS. Market: notify at launch">
+      <input type="email" name="email" required placeholder="you@email.com" aria-label="Your email address">
+      <button type="submit" class="btn btn-pink btn-sm">Notify me</button>
+      <p class="soon-notify-msg" role="status" hidden></p>
+    </form>
+    <span class="spark s1"></span><span class="spark s2"></span><span class="spark s3"></span>
+  </div>
+</div>
+<script src="../js/main-v11.js"></script>
 </body>
 </html>
