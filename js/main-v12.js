@@ -1,7 +1,11 @@
 /* GGS CREATIVE — scripts partagés */
 (function () {
-  // Protection médias — désactive le glisser-déposer des images et vidéos
-  // (clic droit laissé libre : le bloquer gênait la navigation sans protéger les fichiers)
+  // Protection médias — désactive clic droit et drag sur images et vidéos
+  document.addEventListener('contextmenu', function (e) {
+    if (e.target.closest('img, video, .tile, .vtile, .photo-slide, .gallery')) {
+      e.preventDefault();
+    }
+  });
   document.querySelectorAll('img, video').forEach(function (el) {
     el.addEventListener('dragstart', function (e) { e.preventDefault(); });
   });
