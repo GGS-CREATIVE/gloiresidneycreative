@@ -27,12 +27,8 @@
 img,video{-webkit-user-drag:none;user-select:none;-webkit-user-select:none}
 html{scroll-behavior:smooth;scroll-padding-top:96px;overflow-x:hidden;overflow-x:clip;max-width:100%}
 body{font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;overflow-x:clip;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;max-width:100%}
-/* fondu d'entrée de page */
-body{opacity:0;animation:page-in .6s var(--ease) forwards}
-@keyframes page-in{to{opacity:1}}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  body{opacity:1;animation:none}
 }
 h1,h2,h3,h4{font-family:"Poppins",sans-serif;line-height:1.05;letter-spacing:-.02em}
 a{color:inherit;text-decoration:none}
@@ -562,7 +558,7 @@ footer{background:var(--bg)}
 .foot-cta-inner{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
 .foot-cta-line{font-family:"Poppins",sans-serif;font-size:clamp(24px,3.5vw,38px);font-weight:700;letter-spacing:-.025em;line-height:1.15}
 .foot-cta-line em{color:var(--accent);font-style:normal}
-.foot-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;padding:56px 0 48px;border-top:1px solid var(--border)}
+.foot-top{display:grid;grid-template-columns:1.4fr .8fr .8fr 1.3fr;gap:48px;padding:56px 0 48px;border-top:1px solid var(--border)}
 .foot-top>*{min-width:0}
 .foot-name{font-family:"Poppins",sans-serif;font-size:20px;font-weight:700;line-height:1.2;letter-spacing:-.02em;margin-bottom:10px;color:#fff}
 .foot-brand .role{color:var(--text-muted);font-size:13px;line-height:1.7;margin-bottom:22px}
