@@ -1,11 +1,7 @@
 /* GGS CREATIVE — scripts partagés */
 (function () {
-  // Protection médias — désactive clic droit et drag sur images et vidéos
-  document.addEventListener('contextmenu', function (e) {
-    if (e.target.closest('img, video, .tile, .vtile, .photo-slide, .gallery')) {
-      e.preventDefault();
-    }
-  });
+  // Protection médias — désactive le glisser-déposer des images et vidéos
+  // (clic droit laissé libre : le bloquer gênait la navigation sans protéger les fichiers)
   document.querySelectorAll('img, video').forEach(function (el) {
     el.addEventListener('dragstart', function (e) { e.preventDefault(); });
   });
@@ -31,6 +27,9 @@
     // Sortir le menu du <header> (son backdrop-filter piège le position:fixed)
     // → rattaché au <body> pour se caler sur l'écran, pas sur la page
     document.body.appendChild(menu);
+    // État annoncé aux lecteurs d'écran dès le chargement
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-controls', 'mobileMenu');
 
     // Scrim flouté plein écran (créé dynamiquement, cliquable pour fermer)
     var scrim = document.createElement('div');
