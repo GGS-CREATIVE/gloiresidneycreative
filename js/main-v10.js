@@ -9,10 +9,6 @@
   document.querySelectorAll('img, video').forEach(function (el) {
     el.addEventListener('dragstart', function (e) { e.preventDefault(); });
   });
-  // Popup "bientôt" (market) — verrouille le scroll, non fermable
-  if (document.getElementById('soonOverlay')) {
-    document.body.classList.add('soon-locked');
-  }
 
   // Header : état "scrolled" (fond plus dense + ombre), throttlé rAF
   var header = document.querySelector('header');
@@ -486,6 +482,49 @@
           fError.hidden = false;
         }
         if (fBtn) { fBtn.disabled = false; fBtn.innerHTML = fBtnLabel; }
+      });
+    });
+  }
+
+  // Market "bientôt" : bouton qui ouvre l'inscription + envoi AJAX vers Formspree.
+  // Sans JS, l'ancre #notify affiche le formulaire (:target) et le POST classique fonctionne.
+  var notifyForm = document.getElementById('notify');
+  if (notifyForm) {
+    var nOpen = document.querySelector('[data-notify-open]');
+    var nMsg = notifyForm.querySelector('.soon-notify-msg');
+    var nBtn = notifyForm.querySelector('[type="submit"]');
+    var nBtnLabel = nBtn ? nBtn.innerHTML : '';
+    var nEN = (document.documentElement.lang || 'fr').toLowerCase().indexOf('en') === 0;
+    var nTxt = nEN
+      ? { sending: 'Sending…', ok: "You're on the list! I'll let you know as soon as the Market opens.", error: 'Oops, that didn’t work. Please try again in a moment.' }
+      : { sending: 'Envoi…', ok: "C'est noté ! Je te préviens dès l'ouverture du Market.", error: "Oups, l'inscription a échoué. Réessaie dans un instant." };
+    if (nOpen) {
+      nOpen.addEventListener('click', function (e) {
+        e.preventDefault();
+        notifyForm.classList.add('open');
+        nOpen.hidden = true;
+        notifyForm.querySelector('input[type="email"]').focus();
+      });
+    }
+    notifyForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      nMsg.hidden = true;
+      nMsg.classList.remove('is-error');
+      if (nBtn) { nBtn.disabled = true; nBtn.innerHTML = nTxt.sending; }
+      fetch(notifyForm.action, {
+        method: 'POST',
+        body: new FormData(notifyForm),
+        headers: { 'Accept': 'application/json' }
+      }).then(function (res) {
+        if (!res.ok) throw new Error('Erreur');
+        notifyForm.querySelectorAll('input, button').forEach(function (el) { el.hidden = true; });
+        nMsg.textContent = nTxt.ok;
+        nMsg.hidden = false;
+      }).catch(function () {
+        nMsg.textContent = nTxt.error;
+        nMsg.classList.add('is-error');
+        nMsg.hidden = false;
+        if (nBtn) { nBtn.disabled = false; nBtn.innerHTML = nBtnLabel; }
       });
     });
   }

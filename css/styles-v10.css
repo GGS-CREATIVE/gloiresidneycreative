@@ -581,10 +581,11 @@ footer{background:var(--bg)}
 .totop:hover{transform:translateY(-3px)}
 
 /* ---------- POPUP "BIENTÔT" (market) ---------- */
-.soon-overlay{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px;
-  background:radial-gradient(120% 90% at 50% 0%,rgba(70,17,47,.55),rgba(5,2,8,.86) 70%);
-  backdrop-filter:blur(20px) saturate(120%);-webkit-backdrop-filter:blur(20px) saturate(120%);animation:soon-in .6s var(--ease)}
-@keyframes soon-in{from{opacity:0}to{opacity:1}}
+/* page "bientôt" (market) : la carte est le contenu de la page */
+.soon-page{position:relative;padding:150px 0 110px;overflow:hidden}
+.soon-page::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:80vw;max-width:900px;height:640px;
+  background:radial-gradient(circle,rgba(70,17,47,.6),transparent 70%);pointer-events:none}
+.soon-page .soon-card{margin:0 auto}
 
 .soon-card{position:relative;max-width:500px;width:100%;text-align:center;
   background:linear-gradient(160deg,#2e0b1e 0%,var(--card-to) 100%);
@@ -620,7 +621,7 @@ footer{background:var(--bg)}
 @keyframes soon-spin{to{transform:rotate(360deg)}}
 
 .soon-kicker{font-family:"Poppins";font-weight:600;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
-.soon-card h2{font-family:"Poppins";font-size:clamp(28px,4.4vw,38px);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin-bottom:16px}
+.soon-card h1{font-family:"Poppins";font-size:clamp(28px,4.4vw,38px);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin-bottom:16px}
 .soon-card p{color:#e7dbe1;font-size:15px;line-height:1.7;max-width:380px;margin:0 auto}
 .soon-card .soon-sub{color:var(--text-muted);font-size:13px;margin-top:14px}
 
@@ -633,6 +634,19 @@ footer{background:var(--bg)}
 
 .soon-card .soon-links{display:flex;gap:14px;justify-content:center;margin-top:30px;flex-wrap:wrap}
 
+/* inscription "me prévenir" : ouverte par le bouton (JS) ou par l'ancre #notify sans JS */
+.soon-notify{display:none;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
+.soon-notify:target,.soon-notify.open{display:flex}
+.soon-notify input[type=email]{flex:1;min-width:0;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:100px;padding:10px 18px;color:var(--text);font-family:"DM Sans";font-size:14px;outline:none}
+.soon-notify input[type=email]:focus{border-color:var(--accent)}
+.soon-notify-msg{flex-basis:100%;font-size:13px;color:#e7dbe1}
+.soon-notify-msg.is-error{color:var(--accent)}
+.soon-links [hidden],.soon-notify [hidden]{display:none}
+@media(max-width:680px){
+  .soon-page{padding:120px 0 80px}
+  .soon-card{padding:44px 24px 36px}
+}
+
 /* particules flottantes */
 .soon-card .spark{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--accent);opacity:.5;z-index:0;animation:soon-float 5s ease-in-out infinite}
 .soon-card .spark.s1{top:18%;left:12%;animation-delay:0s}
@@ -640,7 +654,6 @@ footer{background:var(--bg)}
 .soon-card .spark.s3{bottom:24%;left:18%;width:4px;height:4px;opacity:.3;animation-delay:2.1s}
 @keyframes soon-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 
-body.soon-locked{overflow:hidden}
 body.menu-locked{overflow:hidden}
 
 @media(prefers-reduced-motion:reduce){
