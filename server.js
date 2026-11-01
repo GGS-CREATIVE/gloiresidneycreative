@@ -28,7 +28,7 @@ function send(res, status, body, type) {
   var headers = {};
   if (type) headers['Content-Type'] = type;
   // HTML : jamais mis en cache (les MAJ apparaissent tout de suite)
-  // Autres (css/js/images) : revalidation, le ?v= gère le cache long
+  // Autres (css/js/images/polices) : revalidation à chaque visite ; changer de version (styles-vN.css, main-vN.js) reste la règle
   if (type && type.indexOf('text/html') === 0) {
     headers['Cache-Control'] = 'no-cache, no-store, must-revalidate';
   } else {
@@ -36,6 +36,19 @@ function send(res, status, body, type) {
   }
   res.writeHead(status, headers);
   res.end(body);
+}
+
+// Fichiers internes jamais servis : fichiers/dossiers cachés (.git, .claude…),
+// scripts, doc (.md) et fichiers du serveur lui-même
+const BLOCKED = /(^|\/)\.|^\/(scripts|node_modules)(\/|$)|^\/(server\.js|package(-lock)?\.json)$/i;
+
+// Vraie page 404 du site (FR, ou EN sous /en/)
+function notFound(res, p) {
+  var page = p.indexOf('/en/') === 0 ? 'en/404.html' : '404.html';
+  fs.readFile(path.join(ROOT, page), function (err, data) {
+    if (err) return send(res, 404, 'Not found', 'text/plain');
+    send(res, 404, data, 'text/html; charset=utf-8');
+  });
 }
 
 const server = http.createServer(function (req, res) {
@@ -52,6 +65,7 @@ const server = http.createServer(function (req, res) {
       return res.end();
     }
 
+    if (BLOCKED.test(p)) return notFound(res, p);
     if (p.endsWith('/')) p += 'index.html';
 
     var fp = path.normalize(path.join(ROOT, p));
@@ -63,14 +77,12 @@ const server = http.createServer(function (req, res) {
       else if (fs.existsSync(path.join(fp, 'index.html'))) fp = path.join(fp, 'index.html');
     }
 
+    // Seuls les types du site sont servis (.md, .py, .gitignore… → 404)
+    var type = MIME[path.extname(fp).toLowerCase()];
+    if (!type) return notFound(res, p);
+
     fs.readFile(fp, function (err, data) {
-      if (err) {
-        return fs.readFile(path.join(ROOT, 'index.html'), function (e2, d2) {
-          if (e2) return send(res, 404, 'Not found', 'text/plain');
-          send(res, 404, d2, 'text/html; charset=utf-8');
-        });
-      }
-      var type = MIME[path.extname(fp).toLowerCase()] || 'application/octet-stream';
+      if (err) return notFound(res, p);
       send(res, 200, data, type);
     });
   } catch (e) {
