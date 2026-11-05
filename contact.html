@@ -11,7 +11,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="css/styles-v16.css">
+<link rel="stylesheet" href="css/styles-v17.css">
   <link rel="alternate" hreflang="fr" href="https://gloiresidneycreative.com/contact">
   <link rel="alternate" hreflang="en" href="https://gloiresidneycreative.com/en/contact">
   <link rel="alternate" hreflang="x-default" href="https://gloiresidneycreative.com/contact">
@@ -156,19 +156,33 @@
       <!-- ═══ PHOTOGRAPHY ═══ -->
       <div class="svc-fields" data-svc-fields="photo">
         <div class="field">
-          <label for="photo-type">Type de séance</label>
+          <label for="photo-type">Formule</label>
           <select id="photo-type" name="Type de séance">
-            <option>Portrait / Personal branding</option>
-            <option>Mariage / Cérémonie</option>
-            <option>Événement / Soirée</option>
-            <option>Corporate / Équipe</option>
-            <option>Mode / Lifestyle / Éditorial</option>
-            <option>Produit / Packshot</option>
+            <optgroup label="Studio">
+              <option data-slug="portrait" data-included="1 h dans mon studio · 10 photos retouchées incluses">Portrait, 150 €</option>
+              <option data-slug="creatif" data-included="1 h dans mon studio · 10 photos retouchées incluses">Anniversaire / Créatif, 200 €</option>
+              <option data-slug="duo" data-included="1 h dans mon studio · 10 photos retouchées incluses">Duo / Petit groupe, 180 €</option>
+              <option data-slug="groupe" data-included="1 h dans mon studio · 10 photos retouchées incluses">Grand groupe, 180 €</option>
+            </optgroup>
+            <optgroup label="Maternité">
+              <option data-slug="maternite-solo" data-included="1 h dans mon studio · 10 photos retouchées incluses">Maternité solo, 150 €</option>
+              <option data-slug="maternite-couple" data-included="1 h dans mon studio · 10 photos retouchées incluses">Maternité couple, 180 €</option>
+            </optgroup>
+            <optgroup label="Autres séances (sur devis)">
+              <option>Personal branding</option>
+              <option>Mariage / Cérémonie</option>
+              <option>Événement / Soirée</option>
+              <option>Corporate / Équipe</option>
+              <option>Mode / Lifestyle / Éditorial</option>
+              <option>Produit / Packshot</option>
+            </optgroup>
+          
           </select>
+          <p class="formule-note" id="formuleNote" hidden></p>
         </div>
         <div class="field-row">
           <div class="field"><label for="photo-date">Date souhaitée</label><input type="text" id="photo-date" name="Date souhaitée" placeholder="ex. mi-juillet, flexible"></div>
-          <div class="field">
+          <div class="field" data-sur-devis>
             <label for="photo-lieu">Lieu</label>
             <select id="photo-lieu" name="Lieu">
               <option>À définir ensemble</option>
@@ -178,7 +192,7 @@
             </select>
           </div>
         </div>
-        <div class="field">
+        <div class="field" data-sur-devis>
           <label for="photo-volume">Volume de photos souhaité</label>
           <select id="photo-volume" name="Volume de photos">
             <option>Je ne sais pas encore</option>
@@ -264,7 +278,7 @@
       </div>
 
       <!-- Commun : budget + message -->
-      <div class="field">
+      <div class="field" data-sur-devis>
         <label for="fbudget">Budget estimé (optionnel)</label>
         <select id="fbudget" name="Budget">
           <option>Je préfère en discuter</option>
@@ -367,6 +381,6 @@
     <div class="foot-bar-end"><a href="mentions-legales.html">Mentions légales</a><a href="#" class="totop" aria-label="Retour en haut"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a></div>
   </div></div>
 </footer>
-<script src="js/main-v13.js"></script>
+<script src="js/main-v14.js"></script>
 </body>
 </html>

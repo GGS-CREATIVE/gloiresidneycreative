@@ -11,7 +11,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16.png">
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
-<link rel="stylesheet" href="../css/styles-v16.css">
+<link rel="stylesheet" href="../css/styles-v17.css">
   <link rel="alternate" hreflang="fr" href="https://gloiresidneycreative.com/contact">
   <link rel="alternate" hreflang="en" href="https://gloiresidneycreative.com/en/contact">
   <link rel="alternate" hreflang="x-default" href="https://gloiresidneycreative.com/contact">
@@ -115,7 +115,7 @@
       <!-- Coordonnées communes -->
       <div class="field-row">
         <div class="field"><label for="fname">Name</label><input type="text" id="fname" name="Name" placeholder="Your name" required></div>
-        <div class="field"><label for="femail">Email</label><input type="email" id="femail" name="Email" placeholder="ton@email.com" required></div>
+        <div class="field"><label for="femail">Email</label><input type="email" id="femail" name="Email" placeholder="you@email.com" required></div>
       </div>
 
       <!-- ═══ WEB DESIGN ═══ -->
@@ -156,19 +156,33 @@
       <!-- ═══ PHOTOGRAPHY ═══ -->
       <div class="svc-fields" data-svc-fields="photo">
         <div class="field">
-          <label for="photo-type">Session type</label>
+          <label for="photo-type">Package</label>
           <select id="photo-type" name="Session type">
-            <option>Portrait / Personal branding</option>
-            <option>Wedding / Ceremony</option>
-            <option>Event / Party</option>
-            <option>Corporate / Team</option>
-            <option>Fashion / Lifestyle / Editorial</option>
-            <option>Product / Packshot</option>
+            <optgroup label="Studio">
+              <option data-slug="portrait" data-included="1 hour in my studio · 10 edited photos included">Portrait, €150</option>
+              <option data-slug="creatif" data-included="1 hour in my studio · 10 edited photos included">Birthday / Creative, €200</option>
+              <option data-slug="duo" data-included="1 hour in my studio · 10 edited photos included">Duo / Small group, €180</option>
+              <option data-slug="groupe" data-included="1 hour in my studio · 10 edited photos included">Large group, €180</option>
+            </optgroup>
+            <optgroup label="Maternity">
+              <option data-slug="maternite-solo" data-included="1 hour in my studio · 10 edited photos included">Maternity solo, €150</option>
+              <option data-slug="maternite-couple" data-included="1 hour in my studio · 10 edited photos included">Maternity couple, €180</option>
+            </optgroup>
+            <optgroup label="Other sessions (on quote)">
+              <option>Personal branding</option>
+              <option>Wedding / Ceremony</option>
+              <option>Event / Party</option>
+              <option>Corporate / Team</option>
+              <option>Fashion / Lifestyle / Editorial</option>
+              <option>Product / Packshot</option>
+            </optgroup>
+          
           </select>
+          <p class="formule-note" id="formuleNote" hidden></p>
         </div>
         <div class="field-row">
           <div class="field"><label for="photo-date">Preferred date</label><input type="text" id="photo-date" name="Preferred date" placeholder="e.g. mid-July, flexible"></div>
-          <div class="field">
+          <div class="field" data-sur-devis>
             <label for="photo-lieu">Location</label>
             <select id="photo-lieu" name="Location">
               <option>To define together</option>
@@ -178,7 +192,7 @@
             </select>
           </div>
         </div>
-        <div class="field">
+        <div class="field" data-sur-devis>
           <label for="photo-volume">Desired number of photos</label>
           <select id="photo-volume" name="Photo volume">
             <option>Not sure yet</option>
@@ -264,7 +278,7 @@
       </div>
 
       <!-- Commun : budget + message -->
-      <div class="field">
+      <div class="field" data-sur-devis>
         <label for="fbudget">Estimated budget (optional)</label>
         <select id="fbudget" name="Budget">
           <option>I'd rather discuss it</option>
@@ -367,6 +381,6 @@
     <div class="foot-bar-end"><a href="mentions-legales.html">Legal notice</a><a href="#" class="totop" aria-label="Back to top"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a></div>
   </div></div>
 </footer>
-<script src="../js/main-v13.js"></script>
+<script src="../js/main-v14.js"></script>
 </body>
 </html>

@@ -78,7 +78,9 @@ node server.js        # http://localhost:3000 (URLs propres, vraie page 404)
 - **KYOOTA** : uniquement le site web d'un client. Jamais « e-commerce », « Shopify » ni
   « branding » pour ce projet.
 - **Prix** : vidéo et web en « Sur devis ». Mariage : seulement « À partir de 1 400 € » ;
-  les autres formules en « Sur devis ».
+  les autres formules en « Sur devis ». Photo : grille validée par Gloire dans
+  `ggs-photography.html` (`#tarifs`) et dans le formulaire (`#photo-type`), à garder
+  identiques en FR et EN. 1 h dans son studio, 10 photos retouchées, TVA non applicable.
 - **Ne rien inventer** : pas de faux avis, pas d'étoiles, pas de chiffres non fournis par
   Gloire, pas de placeholders ni de « [À CONFIRMER] » dans le contenu publié.
 - **Choix volontaires de Gloire, à ne pas retirer** :

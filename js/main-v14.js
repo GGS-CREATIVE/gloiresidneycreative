@@ -347,7 +347,28 @@
           f.disabled = !on;
         });
       });
+      syncFormule();
     }
+
+    // Formule photo à prix fixe : lieu, volume et budget n'ont plus de sens, on les retire
+    function syncFormule() {
+      var select = form && form.querySelector('#photo-type');
+      if (!select) return;
+      var opt = select.options[select.selectedIndex];
+      var fixed = !select.disabled && opt && opt.hasAttribute('data-slug');
+      form.querySelectorAll('[data-sur-devis]').forEach(function (field) {
+        field.hidden = fixed;
+        var inactive = field.closest('.svc-fields') && !field.closest('.svc-fields').classList.contains('active');
+        field.querySelectorAll('input, select').forEach(function (c) { c.disabled = fixed || !!inactive; });
+      });
+      var note = form.querySelector('#formuleNote');
+      if (note) {
+        note.hidden = !fixed;
+        note.textContent = fixed ? opt.getAttribute('data-included') : '';
+      }
+    }
+    var formuleSelect = form && form.querySelector('#photo-type');
+    if (formuleSelect) formuleSelect.addEventListener('change', syncFormule);
 
     group.querySelectorAll('[data-svc]').forEach(function (b) {
       b.addEventListener('click', function () {
@@ -362,6 +383,19 @@
     // Init : n'envoie que les champs du service actif au chargement
     var first = group.querySelector('.active');
     if (first) setActiveFields(first.getAttribute('data-svc'));
+
+    // Arrivée depuis la grille de tarifs : contact.html?formule=portrait
+    var slug = new URLSearchParams(location.search).get('formule');
+    if (slug && formuleSelect) {
+      var chosen = Array.prototype.filter.call(formuleSelect.options, function (o) {
+        return o.getAttribute('data-slug') === slug;
+      })[0];
+      var photoChip = group.querySelector('[data-svc="photo"]');
+      if (chosen && photoChip) {
+        formuleSelect.value = chosen.value;
+        photoChip.click();
+      }
+    }
   });
 
   // Filtre galerie photo par catégorie
